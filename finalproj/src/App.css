@@ -165,5 +165,109 @@ header {
   font-family: 'Roboto', sans-serif;
   font-size: 1.2rem;
   font-weight: 400;
- 
+}
+
+/* Main styles */
+
+body {
+  background-color: #f6f6f6;
+  font-family: Arial, sans-serif;
+  color: #444;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Navigation bar */
+
+nav {
+  background-color: #111;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+nav a:hover {
+  color: #fdd835;
+}
+
+/* Button styles */
+
+button {
+  background-color: #fdd835;
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #ffea00;
+}
+
+/* Heading styles */
+
+h1, h2, h3, h4, h5, h6 {
+  color: #111;
+  font-weight: bold;
+}
+
+/* Color palette */
+
+.black {
+  color: #111;
+}
+
+.grey {
+  color: #aaa;
+}
+
+.light-grey {
+  color: #f6f6f6;
+}
+
+.yellow {
+  color: #fdd835;
+}
+
+.bg-black {
+  background-color: #111;
+}
+
+.bg-grey {
+  background-color: #aaa;
+}
+
+.bg-light-grey {
+  background-color: #f6f6f6;
+}
+
+.bg-yellow {
+  background-color: #fdd835;
 }
