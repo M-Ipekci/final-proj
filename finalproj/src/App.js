@@ -4,11 +4,11 @@ import Body from './semantics/Body';
 import Footer from './semantics/Footer';
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import NavBar from './NavBar';
-import AboutPage from './AboutPage';
-import ReservationPage from './ReservationPage';
-import MenuPage from './MenuPage';
-import HomePage from './HomePage'; // add import for HomePage component
+import NavBar from './other/nav';
+import AboutPage from './other/about';
+import ReservationPage from './other/reservation';
+import MenuPage from './other/menu';
+import HomePage from './';
 
 function App() {
   return (
@@ -20,9 +20,9 @@ function App() {
         <div>
           <NavBar />
           <Route exact path="/" component={HomePage} />
-          <Route path="/about" component={AboutPage} />
-          <Route path="/reservation" component={ReservationPage} />
-          <Route path="/menu" component={MenuPage} />
+          <Route path="/other/about" component={AboutPage} />
+          <Route path="/other/reservation" component={ReservationPage} />
+          <Route path="/other/menu" component={MenuPage} />
         </div>
       </Router>
     </div>
