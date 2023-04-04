@@ -1,15 +1,25 @@
-// src/other/Navigation.js
+// src/other/Navigation.test.js
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import Navigation from './Navigation';
 
-function Navigation({ handleNavigationClick }) {
-  return (
-    <nav>
-      <button onClick={() => handleNavigationClick('home')}>Home</button>
-      <button onClick={() => handleNavigationClick('about')}>About</button>
-      <button onClick={() => handleNavigationClick('reservation')}>Reservation</button>
-      <button onClick={() => handleNavigationClick('menu')}>Menu</button>
-    </nav>
+test('renders navigation links', () => {
+  render(
+    <Router>
+      <Navigation />
+    </Router>
   );
-}
 
-export default Navigation;
+  const homeLink = screen.getByText(/home/i);
+  const reservationLink = screen.getByText(/reservation/i);
+  const menuLink = screen.getByText(/menu/i);
+
+  expect(homeLink).toBeInTheDocument();
+  expect(homeLink.getAttribute('href')).toBe('/');
+  expect(reservationLink).toBeInTheDocument();
+  expect(reservationLink.getAttribute('href')).toBe('/reservation');
+  expect(menuLink).toBeInTheDocument();
+  expect(menuLink.getAttribute('href')).toBe('/menu');
+});

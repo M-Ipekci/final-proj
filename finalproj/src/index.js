@@ -1,8 +1,9 @@
+
 // src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { reportWebVitals } from './reportWebVitals'; // Use named import
+import { reportWebVitals } from './reportWebVitals';
 
 const renderApp = () => {
   ReactDOM.render(
@@ -15,4 +16,7 @@ const renderApp = () => {
   reportWebVitals();
 };
 
-export { renderApp }; // Keep the named export as is
+export { renderApp };
+
+// Call renderApp to render the App component immediately
+renderApp();

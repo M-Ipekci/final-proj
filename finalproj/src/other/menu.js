@@ -1,12 +1,16 @@
 import React from 'react';
 
-function AboutPage() {
+function MenuPage() {
   return (
     <div>
-      <h1>About Us</h1>
-      <p>We are a restaurant dedicated to serving delicious food.</p>
+      <h2>Our Products</h2>
+      <ul>
+        <li>Fresh Lemons</li>
+        <li>Lemon Juice</li>
+        <li>Lemonade</li>
+      </ul>
     </div>
   );
 }
 
-export default AboutPage;
+export default MenuPage;

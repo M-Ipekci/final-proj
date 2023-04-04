@@ -3,5 +3,18 @@
     "react-datepicker": "^4.11.0",
     "react-router-dom": "^6.9.0",
     "react-toastify": "^9.1.2"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest",
+    "eject": "react-scripts eject"
   }
 }

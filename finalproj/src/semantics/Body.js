@@ -4,13 +4,7 @@ function Body() {
   return (
     <main>
       <h1>About Us</h1>
-      <p>We are a small family-owned business that sells the freshest lemons in town. Our lemons are hand-picked and locally sourced to ensure maximum freshness and quality.</p>
-      <h2>Our Products</h2>
-      <ul>
-        <li>Fresh Lemons</li>
-        <li>Lemon Juice</li>
-        <li>Lemonade</li>
-      </ul>
+      <p>We are a small restaurant fit to your needs and hungers, serving the freshest food with the kindest smiles.</p>
     </main>
   );
 }
