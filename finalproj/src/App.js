@@ -9,6 +9,7 @@ import HomePage from './other/homepage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navigation from './other/Navigation';
 
+
 function App() {
   return (
     <div className="App">
