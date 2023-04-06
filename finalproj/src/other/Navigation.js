@@ -1,25 +1,28 @@
-// src/other/Navigation.test.js
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import Navigation from './Navigation';
+import { NavLink } from 'react-router-dom';
 
-test('renders navigation links', () => {
-  render(
-    <Router>
-      <Navigation />
-    </Router>
+const Navigation = () => {
+  return (
+    <nav>
+      <ul>
+        <li>
+          <NavLink exact to="/" activeClassName="active">
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/reservation" activeClassName="active">
+            Reservation
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/menu" activeClassName="active">
+            Menu
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
   );
+};
 
-  const homeLink = screen.getByText(/home/i);
-  const reservationLink = screen.getByText(/reservation/i);
-  const menuLink = screen.getByText(/menu/i);
-
-  expect(homeLink).toBeInTheDocument();
-  expect(homeLink.getAttribute('href')).toBe('/');
-  expect(reservationLink).toBeInTheDocument();
-  expect(reservationLink.getAttribute('href')).toBe('/reservation');
-  expect(menuLink).toBeInTheDocument();
-  expect(menuLink.getAttribute('href')).toBe('/menu');
-});
+export default Navigation;

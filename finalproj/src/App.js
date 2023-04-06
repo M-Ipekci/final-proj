@@ -1,8 +1,8 @@
+import React from 'react';
 import './App.css';
 import Header from './semantics/Header';
 import Body from './semantics/Body';
 import Footer from './semantics/Footer';
-import React from 'react';
 import ReservationPage from './other/reservation';
 import MenuPage from './other/menu';
 import HomePage from './other/homepage';
