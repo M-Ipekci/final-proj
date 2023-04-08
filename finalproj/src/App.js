@@ -1,31 +1,22 @@
 import React from 'react';
-import './App.css';
-import Header from './semantics/Header';
-import Body from './semantics/Body';
-import Footer from './semantics/Footer';
-import ReservationPage from './other/reservation';
-import MenuPage from './other/menu';
-import HomePage from './other/homepage';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navigation from './other/Navigation';
-
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navigation from './components/Navigation';
+import Home from './components/Home';
+import Reservation from './components/Reservation';
+import Menu from './components/Menu';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Router>
+    <Router>
+      <div className="App">
         <Navigation />
-        <Body>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/reservation" element={<ReservationPage />} />
-            <Route path="/menu" element={<MenuPage />} />
-          </Routes>
-        </Body>
-      </Router>
-      <Footer />
-    </div>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/reservation" component={Reservation} />
+          <Route path="/menu" component={Menu} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
