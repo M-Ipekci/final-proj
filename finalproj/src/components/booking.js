@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const BookingCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [bookedDates, setBookedDates] = useState([]);
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
     fetchBookedDates();
@@ -30,12 +31,40 @@ const BookingCalendar = () => {
     setSelectedDate(date);
   };
 
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
   const bookTable = async () => {
+    if (!selectedDate) {
+      toast.error('Please select a date!', {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000,
+      });
+      return;
+    }
+
+    if (isDateBooked(selectedDate)) {
+      toast.error('This table has already been booked!', {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000,
+      });
+      return;
+    }
+
+    if (!email) {
+      toast.error('Please enter your email!', {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000,
+      });
+      return;
+    }
+
     try {
       const response = await fetch('http://localhost:5000/bookedDates', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ date: selectedDate }),
+        body: JSON.stringify({ date: selectedDate, email }),
       });
 
       if (response.ok) {
@@ -45,6 +74,7 @@ const BookingCalendar = () => {
         });
         fetchBookedDates();
         setSelectedDate(null);
+        setEmail('');
       } else {
         toast.error('Error booking table!', {
           position: toast.POSITION.TOP_CENTER,
@@ -59,26 +89,37 @@ const BookingCalendar = () => {
   return (
     <div>
       <h2>Book a Table</h2>
-      <DatePicker
-        selected={selectedDate}
-        onChange={handleDateChange}
-        minDate={new Date()}
-        inline
-        excludeDates={bookedDates}
-        highlightDates={bookedDates}
-        isClearable
-        placeholderText="Select a date"
-      />
-      <button
-        className="book-table-btn"
-        onClick={bookTable}
-        disabled={!selectedDate || isDateBooked(selectedDate)}
-      >
-        Book Table
-      </button>
+      <form>
+        <DatePicker
+          selected={selectedDate}
+          onChange={handleDateChange}
+          minDate={new Date()}
+          inline
+          excludeDates={bookedDates}
+          highlightDates={bookedDates}
+          isClearable
+          placeholderText="Select a date"
+          required
+        />
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={email}
+          onChange={handleEmailChange}
+          required
+        />
+        <button
+          className="book-table-btn"
+          type="submit"
+          onClick={bookTable}
+          disabled={!selectedDate || isDateBooked(selectedDate) || !email}
+        >
+          Book Table
+        </button>
+      </form>
       <ToastContainer />
     </div>
-  );
-};
-
-export default BookingCalendar;
+  )
+}
